@@ -1,6 +1,13 @@
 const mongoose = require('mongoose');
 
-const articleSchema = mongoose.Schema(
+
+const commentSchema = new mongoose.Schema({
+    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    content: { type: String, required: true },
+    createdAt: { type: Date, default: Date.now }
+  });
+
+const articleSchema = new mongoose.Schema(
   {
     title: {
       type: String,
@@ -19,9 +26,10 @@ const articleSchema = mongoose.Schema(
       type: Number,
       default: 0,
     },
-  },
-  {
-    timestamps: true,
+    comments: [commentSchema],
+  shareCount: { type: Number, default: 0 },
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now }
   }
 );
 

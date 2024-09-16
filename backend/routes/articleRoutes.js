@@ -31,6 +31,41 @@ router.get('/', async (req, res) => {
   }
 });
 
-
-
-module.exports = router;
+// add comments under post
+router.post('/:id/comments', async (req, res) => {
+    try {
+      const article = await Article.findById(req.params.id);
+      if (!article) {
+        return res.status(404).json({ message: 'Article not found' });
+      }
+      
+      article.comments.push({
+        user: req.user._id, // Assuming you have authentication middleware
+        content: req.body.content
+      });
+      
+      const updatedArticle = await article.save();
+      res.status(201).json(updatedArticle);
+    } catch (err) {
+      res.status(400).json({ message: err.message });
+    }
+  });
+  
+  // Increment share count
+  router.post('/:id/share', async (req, res) => {
+    try {
+      const article = await Article.findByIdAndUpdate(
+        req.params.id,
+        { $inc: { shareCount: 1 } },
+        { new: true }
+      );
+      if (!article) {
+        return res.status(404).json({ message: 'Article not found' });
+      }
+      res.json({ shareCount: article.shareCount });
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  });
+  
+  module.exports = router;

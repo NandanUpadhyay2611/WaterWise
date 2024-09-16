@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css'; // For styling
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -61,31 +62,31 @@ const Navbar = () => {
           </div>
         </div>
         <ul className="nav-links">
-          <li><a href="/">Home</a></li>
+          <li><Link to="/">Home</Link></li>
           <li>
-            <a href="/articles">Articles</a>
+            <Link to="/articles">Articles</Link>
             <ul className="dropdown">
-              <li><a href="/articles/irrigation">Irrigation</a></li>
-              <li><a href="/articles/domestic-use">Domestic Use</a></li>
-              <li><a href="/articles/water-reuse">Water Reuse</a></li>
+              <li><Link to="/articles/irrigation">Irrigation</Link></li>
+              <li><Link to="/articles/domestic-use">Domestic Use</Link></li>
+              <li><Link to="/articles/water-reuse">Water Reuse</Link></li>
             </ul>
           </li>
-          <li><a href="/tools">Interactive Tools</a>
+          <li><Link to="/tools">Interactive Tools</Link>
             <ul className="dropdown">
-              <li><a href="/community">Community Forums</a></li>
-              <li><a href="/waterCal">Water Calculator</a></li>
+              <li><Link to="/community">Community Forums</Link></li>
+              <li><Link to="/waterCal">Water Calculator</Link></li>
             </ul>
           </li>
           <li>
-            <a href="/multimedia">Multimedia</a>
+            <Link to="/multimedia">Multimedia</Link>
             <ul className="dropdown">
-              <li><a href="/multimedia/videos">Videos</a></li>
-              <li><a href="/multimedia/podcasts">Podcasts</a></li>
-              <li><a href="/multimedia/webinars">Webinars</a></li>
+              <li><Link to="/multimedia/videos">Videos</Link></li>
+              <li><Link to="/multimedia/podcasts">Podcasts</Link></li>
+              <li><Link to="/multimedia/webinars">Webinars</Link></li>
             </ul>
           </li>
-          <li><a href="/about">About Us</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><Link to="/about">About Us</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
         </ul>
         <div className="search-bar">
           <input type="text" placeholder="Search..." />
@@ -95,7 +96,7 @@ const Navbar = () => {
       {/* Notification for Streak */}
       {showNotification && (
         <div className="streak-notification">
-          🎉 You've continued your streak! {streak} day(s) in a row! Keep going!
+          `🎉 Youve continued your streak! {streak} day(s) in a row! Keep going!`
         </div>
       )}
     </>
