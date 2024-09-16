@@ -1,0 +1,135 @@
+/* Home.css */
+
+/* Blur effect class */
+.blur {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+  }
+  
+  /* General */
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .homepage {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  h2 {
+    color: #0077b6;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  p {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(90deg, #0077b6, #00b4d8);
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+  }
+  
+  .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .cta-button {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #ffdd57;
+    box-shadow: 0 4px 10px rgba(255, 221, 87, 0.5);
+  }
+  
+  /* Featured Content Section */
+  .featured-content {
+    padding: 50px 20px;
+    background-color: #f0f4f8;
+    text-align: center;
+  }
+  
+  .featured-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+  }
+  
+  .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Interactive Tools Section */
+  .interactive-tools {
+    padding: 50px 20px;
+    text-align: center;
+  }
+  
+  /* Community Section */
+  .community {
+    padding: 50px 20px;
+    background-color: #e0f7fa;
+    text-align: center;
+  }
+  
+  /* Multimedia Section */
+  .multimedia {
+    padding: 50px 20px;
+  }
+  
+  .media-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .media-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+  }
+  
+  /* Gamification Section */
+  .gamification {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
