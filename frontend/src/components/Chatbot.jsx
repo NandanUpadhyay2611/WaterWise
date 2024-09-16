@@ -18,8 +18,8 @@ const Chatbot = () => {
 
 
   const getBotResponse = async (message) => {
-    const API_KEY = 'AIzaSyDXygtaHxlAYSERRObTbDEwLkTLkoV5NXA';
-    const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=AIzaSyDXygtaHxlAYSERRObTbDEwLkTLkoV5NXA';
+    const API_KEY = configDotenv.GEMINI_API_KEY;
+    const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent';
 
     try {
       const response = await axios.post(API_URL, {
