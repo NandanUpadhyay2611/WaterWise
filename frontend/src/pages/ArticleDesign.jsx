@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './ArticleD.css';
+import './ArticleD.css'; // Import your CSS styles
 
 function ArticleSlider({ articles }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -22,28 +22,56 @@ function ArticleSlider({ articles }) {
   };
 
   return (
-    <div className="slider-container">
-      <div
-        className="slider"
-        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-      >
-        {articles.map((article, index) => (
-          <div className="slide" key={index}>
-            <div className="article-tile">
-              <h3>
-                <Link to={`/articles/${article._id}`}>{article.title}</Link>
-              </h3>
-              <p>{article.content}</p>
-              <p>Author: {article.author}</p>
-              <p>Verified by: {article.verifiedBy}</p>
+    <>
+      {/* Slider Section */}
+      <div className="slider-container">
+        <div
+          className="slider"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          {articles.map((article, index) => (
+            <div className="slide" key={index}>
+              {/* Wrap each slide with Link */}
+              <Link to={`/articles/${article._id}`} className="slide-link">
+                <div className="article-tile">
+                  <h3>{article.title}</h3>
+                  <p>{article.content}</p>
+                  <p>Author: {article.author}</p>
+                  <p>Verified by: {article.verifiedBy}</p>
+                </div>
+              </Link>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        <button className="next-button" onClick={nextSlide}>
+          Next
+        </button>
       </div>
-      <button className="next-button" onClick={nextSlide}>
-        Next
-      </button>
-    </div>
+
+      {/* News Grid Section */}
+      <div className="news-grid-container">
+        <h2>Latest News</h2>
+        <div className="news-grid">
+          {articles.map((article, index) => (
+            <div className="news-item" key={index}>
+              <div className="image-container">
+                <img
+                  src={article.imageUrl || '/default-image.jpg'} // Placeholder or default image
+                  alt={article.title}
+                  className="news-image"
+                />
+              </div>
+              <h4 className="news-title">
+                <Link to={`/articles/${article._id}`}>{article.title}</Link>
+              </h4>
+              <p className="news-description">
+                {article.content.slice(0, 100)}... {/* Shortened description */}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
 

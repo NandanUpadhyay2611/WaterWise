@@ -22,6 +22,8 @@ function App() {
           <Route exact path="/articles" element={<ArticlesList />} />
           <Route path="/articles/:id" element={<ArticleDetails />} />
           
+          
+          
         </Routes>
       </div>
   );

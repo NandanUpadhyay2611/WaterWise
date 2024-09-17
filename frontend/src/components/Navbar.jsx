@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css'; // For styling
 import "bootstrap/dist/css/bootstrap.min.css";
+ import fireIcon from '../assets/fire.png';
 
 const Navbar = () => {
   const [streak, setStreak] = useState(0);
@@ -57,7 +58,10 @@ const Navbar = () => {
         <div className="logo">
           {/* Replace logo with streak counter */}
           <div className="streak-counter">
-            <img src="/frontend/my-react-app/src/assets/fire.png" alt="Streak Icon" className="streak-icon" />
+         
+
+<img src={fireIcon} alt="Streak Icon" className="streak-icon" />
+
             <span>{streak} Day Streak</span>
           </div>
         </div>
@@ -75,6 +79,7 @@ const Navbar = () => {
             <ul className="dropdown">
               <li><Link to="/community">Community Forums</Link></li>
               <li><Link to="/waterCal">Water Calculator</Link></li>
+              <li><Link to="/quiz">Quizes and games</Link></li>
             </ul>
           </li>
           <li>
