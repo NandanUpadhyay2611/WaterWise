@@ -7,6 +7,8 @@ import ArticleDetails from './pages/ArticleDetails';
 import ArticlesList from './pages/ArticlesList';
 import Chatbot from './components/chatbot';
 import { BrowserRouter as Router , Route , Routes} from 'react-router-dom';
+import WaterUsageCalc from './components/WaterUsageCalc';
+import Quiz from './components/Quiz';
 // import Switch from 'react-router-dom';
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/articles" element={<ArticlesList />} />
           <Route path="/articles/:id" element={<ArticleDetails />} />
+          <Route path="/waterCalc" element={<WaterUsageCalc />} />
+          <Route path='/quiz' element={<Quiz />} />
           
         </Routes>
       </div>

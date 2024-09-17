@@ -30,6 +30,7 @@ function ArticleSlider({ articles }) {
         {articles.map((article, index) => (
           <div className="slide" key={index}>
             <div className="article-tile">
+              <div className='imageDiv'><img src="https://www.sih.gov.in/img/problem-statement-bg.jpg" alt="imgerror" /></div>
               <h3>
                 <Link to={`/articles/${article._id}`}>{article.title}</Link>
               </h3>
