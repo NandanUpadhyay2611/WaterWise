@@ -80,6 +80,7 @@ const Navbar = () => {
               <li><Link to="/community">Community Forums</Link></li>
               <li><Link to="/waterCal">Water Calculator</Link></li>
               <li><Link to="/quiz">Quizes and games</Link></li>
+              <li><Link to="/map">Stats</Link></li>
             </ul>
           </li>
           <li>

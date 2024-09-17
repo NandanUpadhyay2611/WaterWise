@@ -20,7 +20,7 @@ app.use('/api/articles', articleRoutes);
 
 // Use User routes
 app.use('/api/users', userRoutes);
-app.use('/api/watercalc',waterUsageCalc)
+// app.use('/api/watercalc',waterUsageCalc)
 
 
 app.get('/',(req,res)=>{
