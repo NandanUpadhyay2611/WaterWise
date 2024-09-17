@@ -16,11 +16,12 @@ function App() {
    
       <div className="App">
         <Navbar />
+        <Chatbot />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/articles" element={<ArticlesList />} />
           <Route path="/articles/:id" element={<ArticleDetails />} />
-          <Route path="/helpBot" element={<Chatbot />} />
+          
         </Routes>
       </div>
   );
