@@ -23,12 +23,13 @@ function WaterUsageCalc() {
     setResult(null); // Clear previous result
 
     try {
+        const API_KEY = configDotenv.GEMINI_API_KEY;
       // Assuming Gemini API is a POST request and requires a body
       const response = await fetch('https://api.gemini.com/v1/watercalc', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer YOUR_API_KEY' // Replace with actual API key if required
+          'Authorization': `Bearer ${API_KEY}` // Replace with actual API key if required
         },
         body: JSON.stringify(formData)
       });
