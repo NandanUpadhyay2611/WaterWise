@@ -8,7 +8,7 @@ function HomeSlider() {
 
   // Hero content array with Link wrappers for navigation
   const heroContent = [
-    <Link to="/water-saving-techniques" key="1">
+    <Link to="/articles" key="1">
       <Element name="hero">
         <section className="hero">
           <div className="hero-content">

@@ -91,7 +91,7 @@ const Navbar = () => {
               <li><Link to="/multimedia/webinars">Webinars</Link></li>
             </ul>
           </li>
-          <li><Link to="/about">About Us</Link></li>
+          <li><a href="/footer">About us</a></li>
           <li><Link to="/contact">Contact</Link></li>
         </ul>
         <div className="search-bar">

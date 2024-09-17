@@ -9,7 +9,6 @@ import './Home.css';
 const Home = () => {
   const [showQuiz, setShowQuiz] = useState(false);
 
-  // List of AOS effects for random selection
   const effects = ['fade-up', 'fade-down', 'fade-left', 'fade-right', 'zoom-in', 'zoom-out', 'flip-left', 'flip-right', 'slide-up'];
 
   const getRandomEffect = () => {
@@ -26,9 +25,9 @@ const Home = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Animation duration
-      once: false,    // Ensures animations happen every time
-      mirror: true,   // Repeats animations when scrolling back up
+      duration: 1000,
+      once: false,
+      mirror: true,
     });
   }, []);
 
@@ -40,7 +39,7 @@ const Home = () => {
     <div className="homepage">
       {/* Hero Section */}
       <HomeSlider />
-      
+
       {/* Featured Content */}
       <Element name="featured-content">
         <section className="featured-content" data-aos={getRandomEffect()}>
@@ -109,6 +108,44 @@ const Home = () => {
           <button className="cta-button" onClick={handleStartQuiz}>Start Quiz</button>
         </section>
       </Element>
+
+      {/* Footer */}
+      <footer className="footer">
+        <div className="footer-content">
+          <div className="footer-section">
+            <h3>About Us</h3>
+            <p>Learn more about our mission and the team behind this platform.</p>
+          </div>
+          <div className="footer-section">
+            <h3>Contact Us</h3>
+            <p>Email: contact@waterconserve.com</p>
+            <p>Phone: +1 234 567 890</p>
+          </div>
+          <div className="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/articles">Articles</a></li>
+              <li><a href="/waterCalc">Water Calculator</a></li>
+              <li><a href="/quiz">Quiz</a></li>
+              <li><a href="/map">Map</a></li>
+              <li><a href="/videos">Videos</a></li>
+            </ul>
+          </div>
+          <div className="footer-section">
+            <h3>Follow Us</h3>
+            <p>Stay connected through our social media channels.</p>
+            <div className="social-links">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+            </div>
+          </div>
+        </div>
+        <div className="footer-bottom">
+          <p>© 2024 WaterConserve. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 };
