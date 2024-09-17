@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Element } from 'react-scroll';
+import Quiz from './Quiz'; // Import the Quiz component
 import './Home.css';
 import HomeSlider from './HomeSlider';
 
 const Home = () => {
+  const [showQuiz, setShowQuiz] = useState(false);
+
+  const handleStartQuiz = () => {
+    setShowQuiz(true);
+  };
+
+  const handleReturnFromQuiz = () => {
+    setShowQuiz(false);
+  };
+
+  if (showQuiz) {
+    return <Quiz onReturn={handleReturnFromQuiz} />;
+  }
+
   return (
     <div className="homepage">
       {/* Hero Section */}
@@ -84,7 +99,7 @@ const Home = () => {
         <section className="gamification">
           <h2>Take a Challenge!</h2>
           <p>Test your knowledge with quizzes, challenges, and earn rewards for learning about water-saving techniques.</p>
-          <button className="cta-button">Start Quiz</button>
+          <button className="cta-button" onClick={handleStartQuiz}>Start Quiz</button>
         </section>
       </Element>
     </div>
