@@ -1,12 +1,14 @@
 import React from 'react';
 import { Element } from 'react-scroll';
 import './Home.css';
+import HomeSlider from './HomeSlider';
 
 const Home = () => {
   return (
     <div className="homepage">
       {/* Hero Section */}
-      <Element name="hero">
+      <HomeSlider />
+      {/* <Element name="hero">
         <section className="hero">
           <div className="hero-content">
             <h1>Explore Water-Saving Techniques</h1>
@@ -14,7 +16,8 @@ const Home = () => {
             <button className="cta-button">Learn More</button>
           </div>
         </section>
-      </Element>
+      </Element> */}
+      
 
       {/* Featured Content */}
       <Element name="featured-content">

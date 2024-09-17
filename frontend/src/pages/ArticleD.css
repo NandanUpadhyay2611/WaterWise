@@ -1,0 +1,114 @@
+/* Global reset and height definition */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  /* Tile design */
+  .article-tile {
+    width: 90rem; /* Default large size */
+    margin-left: 40px;
+    height: 40vh; /* Tile height is 40% of viewport height */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.419);
+    padding: 16px;
+    background-color: #f5f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease; /* Smooth transition for resizing */
+  }
+  
+  .image-container {
+    height: 70%; /* Adjust height based on your preference */
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .album-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Tile content styles */
+  .article-tile h3 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+  }
+  
+  .article-tile p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Responsive design using media queries */
+  @media (max-width: 1200px) {
+    .article-tile {
+      width: 60rem; /* Shrink to 60rem on medium screens */
+      margin-left: 30px;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .article-tile {
+      width: 50rem; /* Adjust for tablets */
+      margin-left: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .article-tile {
+      width: 40rem; /* Further reduce for smaller screens */
+      margin-left: 15px;
+      height: 50vh; /* Increase height for better fit */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .article-tile {
+      width: 100%; /* Full width on mobile */
+      margin-left: 0;
+      height: auto; /* Let the height adjust to content on mobile */
+    }
+  }
+  /* Slider container */
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%; /* Adjust to fit the tile height */
+    overflow: hidden;
+  }
+  
+  .slider {
+    display: flex;
+    width: 100%;
+    transition: transform 0.5s ease;
+  }
+  
+  .slide {
+    min-width: 100%;
+    height: 100%;
+  }
+  
+  .next-button {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .next-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  
