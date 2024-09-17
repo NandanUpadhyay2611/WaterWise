@@ -1,18 +1,12 @@
-
- 
-
-
 import React, { useState, useEffect } from 'react';
 import './Quiz.css';
 
-const Quiz = ({ onReturn }) => {
+const Quiz = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(600); // 10 minutes
   const [userAnswers, setUserAnswers] = useState([]);
   const [quizEnded, setQuizEnded] = useState(false);
-
-
 
   const quizData = [
     {
@@ -66,81 +60,58 @@ const Quiz = ({ onReturn }) => {
       correct: 2
     }
   ];
-  
-  const Quiz = () => {
-    const [currentQuestion, setCurrentQuestion] = useState(0);
-    const [score, setScore] = useState(0);
-    const [timeLeft, setTimeLeft] = useState(600); // 10 minutes
-    const [userAnswers, setUserAnswers] = useState([]);
-    const [quizEnded, setQuizEnded] = useState(false);
-  
-    useEffect(() => {
-      const timer = setInterval(() => {
-        setTimeLeft((prevTime) => {
-          if (prevTime === 0) {
-            clearInterval(timer);
-            endQuiz();
-            return 0;
-          }
-          return prevTime - 1;
-        });
-      }, 1000);
-  
-      return () => clearInterval(timer);
-    }, []);
-  
-    const submitQuiz = () => {
-      const selectedAnswer = document.querySelector('input[name="answer"]:checked');
-      if (selectedAnswer) {
-        const userAnswer = parseInt(selectedAnswer.value);
-        setUserAnswers((prevAnswers) => [...prevAnswers, userAnswer]);
-        if (userAnswer === quizData[currentQuestion].correct) {
-          setScore((prevScore) => prevScore + 1);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeLeft((prevTime) => {
+        if (prevTime === 0) {
+          clearInterval(timer);
+          endQuiz();
+          return 0;
         }
-      } else {
-        setUserAnswers((prevAnswers) => [...prevAnswers, null]);
+        return prevTime - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const submitQuiz = () => {
+    const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+    if (selectedAnswer) {
+      const userAnswer = parseInt(selectedAnswer.value);
+      setUserAnswers((prevAnswers) => [...prevAnswers, userAnswer]);
+      if (userAnswer === quizData[currentQuestion].correct) {
+        setScore((prevScore) => prevScore + 1);
       }
-  
-      if (currentQuestion < quizData.length - 1) {
-        setCurrentQuestion((prevQuestion) => prevQuestion + 1);
-      } else {
-        endQuiz();
-      }
-    };
-  
-    const endQuiz = () => {
-      setQuizEnded(true);
-    };
-  
-    const formatTime = (time) => {
-      const minutes = Math.floor(time / 60);
-      const seconds = time % 60;
-      return `${minutes}:${seconds.toString().padStart(2, '0')}`;
-    };
+      // Clear the selected answer after submission
+      selectedAnswer.checked = false;
+    } else {
+      setUserAnswers((prevAnswers) => [...prevAnswers, null]);
+    }
 
+    if (currentQuestion < quizData.length - 1) {
+      setCurrentQuestion((prevQuestion) => prevQuestion + 1);
+    } else {
+      endQuiz();
+    }
+  };
 
+  const endQuiz = () => {
+    setQuizEnded(true);
+  };
 
+  const onReturn = () => {
+    // Implement the return to homepage logic, e.g., redirecting to the homepage
+    console.log("Returning to homepage...");
+    window.location.href = "/"; // This can be adjusted to match your route or logic
+  };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
 
   if (quizEnded) {
     return (
@@ -163,12 +134,6 @@ const Quiz = ({ onReturn }) => {
     );
   }
 
-
-
-
-
-
-
   return (
     <div className="quiz-container">
       <h1>Water-Saving Techniques Quiz</h1>
@@ -187,6 +152,5 @@ const Quiz = ({ onReturn }) => {
     </div>
   );
 };
-}
-export default Quiz;
 
+export default Quiz;

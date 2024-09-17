@@ -5,6 +5,7 @@ const dotenv=require('dotenv');
 const connectDB = require('./config/db');
 const articleRoutes = require('./routes/articleRoutes');
 const userRoutes = require('./routes/userRoutes');
+const { waterUsageCalc } = require('./controllers/waterUsageCalc');
 
 
 dotenv.config();
@@ -19,6 +20,7 @@ app.use('/api/articles', articleRoutes);
 
 // Use User routes
 app.use('/api/users', userRoutes);
+app.use('/api/watercalc',waterUsageCalc)
 
 
 app.get('/',(req,res)=>{

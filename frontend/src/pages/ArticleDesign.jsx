@@ -22,6 +22,7 @@ function ArticleSlider({ articles }) {
   };
 
   return (
+<<<<<<< HEAD
     <>
       {/* Slider Section */}
       <div className="slider-container">
@@ -40,6 +41,23 @@ function ArticleSlider({ articles }) {
                   <p>Verified by: {article.verifiedBy}</p>
                 </div>
               </Link>
+=======
+    <div className="slider-container">
+      <div
+        className="slider"
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
+        {articles.map((article, index) => (
+          <div className="slide" key={index}>
+            <div className="article-tile">
+              <div className='imageDiv'><img src="https://www.sih.gov.in/img/problem-statement-bg.jpg" alt="imgerror" /></div>
+              <h3>
+                <Link to={`/articles/${article._id}`}>{article.title}</Link>
+              </h3>
+              <p>{article.content}</p>
+              <p>Author: {article.author}</p>
+              <p>Verified by: {article.verifiedBy}</p>
+>>>>>>> 8194723aa3b698de44973bbb1c27aeacc978361a
             </div>
           ))}
         </div>
