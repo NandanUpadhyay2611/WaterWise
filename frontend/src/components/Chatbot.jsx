@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
-import { configDotenv } from 'dotenv';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import './Chatbot.css';
 
 const Chatbot = () => {
@@ -8,7 +7,13 @@ const Chatbot = () => {
   const [input, setInput] = useState('');
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [genAI, setGenAI] = useState(null);
   const messagesEndRef = useRef(null);
+
+  useEffect(() => {
+    const API_KEY = "AIzaSyDXygtaHxlAYSERRObTbDEwLkTLkoV5NXA";
+    setGenAI(new GoogleGenerativeAI(API_KEY));
+  }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -16,33 +21,24 @@ const Chatbot = () => {
 
   useEffect(scrollToBottom, [messages]);
 
-
   const getBotResponse = async (message) => {
-    const API_KEY = configDotenv.GEMINI_API_KEY;
-    const API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent';
+    if (!genAI) {
+      throw new Error('AI model not initialized');
+    }
 
     try {
-      const response = await axios.post(API_URL, {
-        contents: [{
-          parts: [{
-            text: `You are a helpful assistant specialized in water conservation. Please respond to the following query: ${message}`
-          }]
-        }]
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${API_KEY}`
-        }
-      });
-
-      // Extract the response text from the Gemini API response
-      const botResponse = response.data.candidates[0].content.parts[0].text;
-      return botResponse;
+      const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+      const prompt = `You are a helpful assistant specialized in water conservation. Please respond to the following query: ${message}`;
+      
+      const result = await model.generateContent(prompt);
+      const response = result.response;
+      return response.text();
     } catch (error) {
       console.error('Error calling Gemini API:', error);
       throw error;
     }
   };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (input.trim() === '') return;
@@ -62,7 +58,6 @@ const Chatbot = () => {
       setIsLoading(false);
     }
   };
-
 
   return (
     <div className="chatbot-container">
