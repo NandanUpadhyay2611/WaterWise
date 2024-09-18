@@ -107,7 +107,7 @@ function WaterUsageCalc() {
     if (currentWarnings.length > 0) {
       setWarnings(currentWarnings);
     } else {
-      setResult("You are perfectly using water... Good yaar!");
+      setResult("You are perfectly using water..");
     }
   };
 
