@@ -5,6 +5,7 @@ import HomeSlider from './HomeSlider';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './Home.css';
+import Navbar from './Navbar';
 
 const Home = () => {
   const [showQuiz, setShowQuiz] = useState(false);
@@ -37,9 +38,11 @@ const Home = () => {
 
   return (
     <div className="homepage">
-      {/* Hero Section */}
+        <Element name="hero">
+      <Navbar />
       <HomeSlider />
-
+    
+      </Element>
       {/* Featured Content */}
       <Element name="featured-content">
         <section className="featured-content" data-aos={getRandomEffect()}>

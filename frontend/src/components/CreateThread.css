@@ -1,0 +1,102 @@
+/* CreateThread.css */
+.createThread {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .createThread h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .createThread div {
+    margin-bottom: 15px;
+  }
+  
+  .createThread input[type="text"],
+  .createThread textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #fdfdfd;
+    transition: all 0.3s ease;
+  }
+  
+  .createThread input[type="text"]:focus,
+  .createThread textarea:focus {
+    border-color: #4CAF50;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.4);
+  }
+  
+  .createThread textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .createThread button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .createThread button:hover {
+    background-color: #45a049;
+  }
+  
+  @media (max-width: 768px) {
+    .createThread {
+      padding: 15px;
+      margin: 30px auto;
+    }
+  
+    .createThread h2 {
+      font-size: 22px;
+    }
+  
+    .createThread input[type="text"],
+    .createThread textarea {
+      font-size: 15px;
+    }
+  
+    .createThread button {
+      font-size: 16px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .createThread {
+      padding: 10px;
+      margin: 20px auto;
+    }
+  
+    .createThread h2 {
+      font-size: 20px;
+    }
+  
+    .createThread input[type="text"],
+    .createThread textarea {
+      font-size: 14px;
+    }
+  
+    .createThread button {
+      font-size: 15px;
+    }
+  }
+  

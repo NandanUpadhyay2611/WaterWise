@@ -19,6 +19,7 @@
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.6.2",
+    "mui": "^0.0.1",
     "react-router-dom": "^6.26.2",
     "react-share": "^5.1.0"
   },

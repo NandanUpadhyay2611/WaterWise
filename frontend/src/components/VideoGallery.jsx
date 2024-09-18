@@ -17,7 +17,7 @@ const videos = [
 
 const VideoGallery = () => {
   const handleVideoClick = (id) => {
-    window.location.href = `https://www.youtube.com/watch?v=${id}`;
+    window.location.href = `https://youtu.be/5DRdtahH6VY?si=fX3fUSEEXqX8WRax`;
   };
 
   return (

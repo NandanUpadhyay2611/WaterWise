@@ -9,17 +9,31 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import WaterUsageCalc from './components/WaterUsageCalc';
 import Quiz from './components/Quiz';
 import Map from './components/Map';
-import Map from './components/Map';
-// import Switch from 'react-router-dom';
+import VideoGallery from './components/VideoGallery';
+import IrrigationArticles from './pages/IrrigationArticles';
+import Register from './components/Register';
+
+import ThreadList from './components/ThreadList';
+import Thread from './components/Threads';
+import CreateThread from './components/CreateThread';
+import WaterConservationDashboard from './components/WaterConservationDashboard';
+import Login from './Login';
+import NgoDashboard from './NgoDashboard';
+import AuthorityDashboard from './AuthorityDashboard';
+
+
+
 
 function App() {
   return (
     
       <div className="App">
-        <Navbar />
+      
         <Chatbot />
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/home" element={<Home />} />
+          <Route path="/" element={<Login />} />
+
           <Route exact path="/articles" element={<ArticlesList />} />
           <Route path="/articles/:id" element={<ArticleDetails />} />
           <Route path='/quiz' element={<Quiz />} />
@@ -29,10 +43,13 @@ function App() {
           <Route path='/articles/irrigation' element={<IrrigationArticles />} />
           <Route path='/watercalc' element={<WaterUsageCalc />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/threads" element={<ThreadList />} />
           <Route path="/threads/:id" element={<Thread />} />
           <Route path="/createThread" element={<CreateThread />} />
+          <Route path="/dashboard" element={<WaterConservationDashboard />} />
+          <Route path="/ngo-dashboard" element={<NgoDashboard />} />
+         <Route path="/authority-dashboard" element={<AuthorityDashboard />} />
+
         
         </Routes>
       </div>

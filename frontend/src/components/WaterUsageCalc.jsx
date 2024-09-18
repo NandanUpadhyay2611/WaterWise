@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import "./WaterUsage.css"
 
 function WaterUsageCalc() {
   const [formData, setFormData] = useState({

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import "./CreateThread.css"
 
 const CreateThread = () => {
   const [title, setTitle] = useState('');
@@ -32,7 +33,7 @@ const CreateThread = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='createThread'>
       <h2>Create a New Thread</h2>
       
       <div>

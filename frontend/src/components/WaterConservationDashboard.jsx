@@ -1,12 +1,36 @@
 import React from 'react';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 import { Droplet } from 'lucide-react';
 
+// Custom Card Component
+const Card = ({ children, className }) => {
+  return (
+    <div className={`bg-white shadow rounded-lg p-4 ${className}`}>
+      {children}
+    </div>
+  );
+};
+
+const CardHeader = ({ children }) => {
+  return (
+    <div className="mb-4">
+      {children}
+    </div>
+  );
+};
+
+const CardContent = ({ children, className }) => {
+  return (
+    <div className={`p-4 ${className}`}>
+      {children}
+    </div>
+  );
+};
+
 const WaterConservationDashboard = () => {
-  const username = "$username"; // bhai dekh ye mongodb se fetch karle
+  const username = "$username"; // Replace with MongoDB fetch logic
   const waterSaved = 1000; // liters
-  
+
   const profileData = [
     { label: "Daily Goal", value: "100 L" },
     { label: "Weekly Savings", value: "650 L" },
