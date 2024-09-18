@@ -25,6 +25,7 @@ function App() {
           <Route path='/quiz' element={<Quiz />} />
           <Route path='/map' element={<Map />} />
           <Route path='/multimedia' element={<VideoGallery />} /> {/* Add this line for VideoGallery */}
+          <Route path='/map' element={<Map />} />
         </Routes>
       </div>
     

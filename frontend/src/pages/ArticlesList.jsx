@@ -9,8 +9,12 @@ function ArticlesList() {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/articles');
-        setArticles(res.data);
+        const API_KEY="d087ec18cb414d68bfb45f051852a24a"
+        const query="Water Scarcity";
+        const res = await axios.get(`https://newsapi.org/v2/everything?q=${query}&apiKey=${API_KEY}`);
+        console.log(res.data.articles);
+        
+        setArticles(res.data.articles);
       } catch (error) {
         console.error('Error fetching articles:', error);
       }
@@ -21,17 +25,7 @@ function ArticlesList() {
   return (
     <div>
       <h2>Peer-Reviewed Articles</h2>
-      {/* {articles.map(article => (
-        <ArticleD
-        _id={article._id}
-        title={article.title}
-        content={article.content}
-        author={article.author}
-        verifiedBy={article.verifiedBy}
-        images={["/path/to/image1.jpg", "/path/to/image2.jpg", "/path/to/image3.jpg"]}
-      />
-      
-      ))} */}
+    
 
 {articles.length > 0 ? (
         <ArticleSlider articles={articles} />
